@@ -15,3 +15,14 @@ public:
         return one;
     }
 };
+
+
+//http://www.cnblogs.com/grandyang/p/4263927.html
+int singleNumber(vector<int>& nums) {
+    int a = 0, b = 0;
+    for (int i = 0; i < nums.size(); ++i) {
+        b = (b ^ nums[i]) & ~a;
+        a = (a ^ nums[i]) & ~b;
+    }
+    return b;
+}
